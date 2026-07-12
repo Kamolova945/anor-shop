@@ -283,6 +283,48 @@ export function HomePage() {
 
         <img src={phoneImage} alt={'Приложение Anor Bank'} width={220} style={{ borderRadius: 24 }} />
       </Flex>
+      <Box
+  bg={'#96033E'}
+  m={'xl'}
+  py={100}
+  pl={150}
+  pr={'xl'}
+  style={{ borderRadius: 24, position: 'relative', overflow: 'hidden' }}
+>
+  <Flex justify={'space-between'} align={'center'} gap={'xl'} wrap={'wrap'}>
+    <Stack maw={500} gap={'sm'}>
+      <Title order={2} c={'white'}>
+        Узнавайте первыми об акциях и новинках
+      </Title>
+      <Text c={'gray.3'}>
+        Подпишитесь на рассылку Anor Shop — скидки, новые коллекции
+        и закрытые предложения для подписчиков.
+      </Text>
+
+      <Flex gap={'sm'} maw={450} align={'stretch'}>
+  <input
+    type={'email'}
+    placeholder={'Ваш email'}
+    style={{
+      flex: 1,
+      padding: '14px 16px',
+      borderRadius: 8,
+      border: 'none',
+      outline: 'none',
+      fontSize: 14,
+    }}
+  />
+  <Button color={'orange'} size={'md'} style={{ borderRadius: 8, height: 'auto' }}>
+    Подписаться
+  </Button>
+</Flex>
+    </Stack>
+
+    <Box mr={200}>
+  <RiShoppingBagFill size={140} color={'rgba(255,255,255,0.15)'} />
+</Box>
+  </Flex>
+</Box>
     </Layout>
   )
 }
