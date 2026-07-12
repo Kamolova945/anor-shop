@@ -4,7 +4,7 @@ import { ProductCard } from '../components/ProductCard.tsx'
 export function ProductsPage() {
   return (
     <Stack p={'xl'}>
-      <Title>Select a vehicle group</Title>
+      <Title>Select products</Title>
 
       <Flex justify={'space-between'} align={'center'} w={'50%'}>
         <Button>All products</Button>

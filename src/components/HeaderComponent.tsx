@@ -53,7 +53,7 @@ export const HeaderComponent = () => {
           </Flex>
 
           <Box>
-            <Text size={'xs'} c={'dimmed'}>
+            <Text size={'xs'} c={'black'}>
               Need help?
             </Text>
             <Text fw={700}>+998 78 150 00 00</Text>
