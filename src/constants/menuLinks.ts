@@ -9,10 +9,7 @@ export const menuLinks: IMenuLinks[] = [
     title: 'Products',
     path: '/products',
   },
-  {
-    title: 'Details',
-    path: '/details',
-  },
+ 
   {
     title: 'About us',
     path: '/about',

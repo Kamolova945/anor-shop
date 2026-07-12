@@ -8,4 +8,7 @@ export interface IProduct {
   color: string
   imageColor: string
   description: string
+  material: string
+  sizes: string
+  weight: string
 }

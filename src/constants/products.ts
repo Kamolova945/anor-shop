@@ -9,6 +9,9 @@ export const products: IProduct[] = [
     color: 'Чёрный',
     imageColor: '#1a1a1a',
     description: 'Классическая хлопковая футболка с вышитым логотипом Anor Bank.',
+    material: '100% хлопок',
+    sizes: 'S, M, L, XL',
+    weight: '180 г',
   },
   {
     id: 2,
@@ -18,6 +21,9 @@ export const products: IProduct[] = [
     color: 'Белый',
     imageColor: '#f1f1f1',
     description: 'Лёгкая хлопковая футболка с логотипом Anor Bank.',
+    material: '100% хлопок',
+    sizes: 'S, M, L, XL',
+    weight: '180 г',
   },
   {
     id: 3,
@@ -27,6 +33,9 @@ export const products: IProduct[] = [
     color: 'Тёмно-серый',
     imageColor: '#3d3d3d',
     description: 'Тёплое худи с вышивкой логотипа Anor Bank.',
+    material: '80% хлопок, 20% полиэстер',
+    sizes: 'S, M, L, XL, XXL',
+    weight: '420 г',
   },
   {
     id: 4,
@@ -36,6 +45,9 @@ export const products: IProduct[] = [
     color: 'Чёрный',
     imageColor: '#222222',
     description: 'Блокнот в твёрдой обложке формата A5, 120 листов.',
+    material: 'Экокожа, бумага 90 г/м²',
+    sizes: 'A5 (148×210 мм)',
+    weight: '280 г',
   },
   {
     id: 5,
@@ -45,6 +57,9 @@ export const products: IProduct[] = [
     color: 'Бордовый',
     imageColor: '#7a1f2b',
     description: 'Компактный карманный блокнот A6 с резинкой-фиксатором.',
+    material: 'Экокожа, бумага 80 г/м²',
+    sizes: 'A6 (105×148 мм)',
+    weight: '150 г',
   },
   {
     id: 6,
@@ -54,5 +69,8 @@ export const products: IProduct[] = [
     color: 'Красный',
     imageColor: '#c0392b',
     description: 'Датированный ежедневник на год в фирменной обложке.',
+    material: 'Экокожа, бумага 90 г/м²',
+    sizes: 'A5 (148×210 мм)',
+    weight: '300 г',
   },
 ]
