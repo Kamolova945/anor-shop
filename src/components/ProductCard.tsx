@@ -1,16 +1,36 @@
-import { Box, Button, Flex, Text } from '@mantine/core'
+import { Badge, Box, Button, Text } from '@mantine/core'
+import { Link } from 'react-router'
+import type { IProduct } from '../types/products.ts'
 
-export const ProductCard = () => {
+interface ProductCardProps {
+  product: IProduct
+}
+
+export const ProductCard = ({ product }: ProductCardProps) => {
   return (
-    <Box w={'20%'} bg={'#d5d3d3'} p={'md'}>
-      <Box w={'100%'} h={'200px'} bg={'gray'}></Box>
-      <Flex justify={'space-between'} align={'center'}>
-        <Text>Product name</Text>
+    <Box w={260} bg={'white'} p={'md'} style={{ borderRadius: 12, border: '1px solid #e9e9e9' }}>
+      <Box
+        w={'100%'}
+        h={180}
+        bg={product.imageColor}
+        style={{ borderRadius: 8, position: 'relative' }}
+      >
+        <Badge variant={'filled'} color={'orange'} style={{ position: 'absolute', top: 8, left: 8 }}>
+          {product.category === 'tshirt' ? 'Одежда' : 'Блокноты'}
+        </Badge>
+      </Box>
 
-        <Text>15.000 uzs</Text>
-      </Flex>
+      <Text fw={600} size={'sm'} mt={'sm'}>
+        {product.title}
+      </Text>
 
-      <Button w={'100%'}>View details</Button>
+      <Text c={'dimmed'} size={'sm'} mb={'sm'}>
+        {product.price.toLocaleString('ru-RU')} сум
+      </Text>
+
+      <Button component={Link} to={`/details/${product.id}`} fullWidth color={'red'}>
+        Подробнее
+      </Button>
     </Box>
   )
 }

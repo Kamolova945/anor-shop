@@ -1,8 +1,10 @@
 import { useState } from 'react'
-import { Box, Button, Flex, Select, Stack, Text, Title } from '@mantine/core'
+import { Box, Button, Flex, Select, SimpleGrid, Stack, Text, Title } from '@mantine/core'
 import { Link } from 'react-router'
 import { RiShieldCheckLine, RiTruckLine, RiPaletteLine } from '@remixicon/react'
 import { Layout } from '../components/Layout.tsx'
+import { ProductCard } from '../components/ProductCard.tsx'
+import { products } from '../constants/products.ts'
 
 
 const features = [
@@ -31,7 +33,7 @@ export function HomePage() {
 
   return (
     <Layout>
-     
+    
       <Box
         bg={'#96033E'}
         m={'xl'}
@@ -91,11 +93,9 @@ export function HomePage() {
         </Flex>
       </Box>
 
-    
+      
       <Flex justify={'center'} gap={'xl'} p={'xl'} wrap={'wrap'}>
         {features.map((feature) => {
-          
-    
           const Icon = feature.icon
 
           return (
@@ -109,6 +109,19 @@ export function HomePage() {
           )
         })}
       </Flex>
+
+      
+      <Box p={'xl'} maw={1000} mx={'auto'}>
+  <Title order={2} mb={'lg'} ta={'center'}>
+    Почему выбирают наш мерч
+  </Title>
+
+  <SimpleGrid cols={{ base: 1, sm: 2, md: 3 }} spacing={'lg'}>
+    {products.map((product) => (
+      <ProductCard key={product.id} product={product} />
+    ))}
+  </SimpleGrid>
+</Box>
     </Layout>
   )
 }

@@ -1,0 +1,58 @@
+import type { IProduct } from '../types/products.ts'
+
+export const products: IProduct[] = [
+  {
+    id: 1,
+    title: 'Футболка Anor Bank, чёрная',
+    category: 'tshirt',
+    price: 85000,
+    color: 'Чёрный',
+    imageColor: '#1a1a1a',
+    description: 'Классическая хлопковая футболка с вышитым логотипом Anor Bank.',
+  },
+  {
+    id: 2,
+    title: 'Футболка Anor Bank, белая',
+    category: 'tshirt',
+    price: 85000,
+    color: 'Белый',
+    imageColor: '#f1f1f1',
+    description: 'Лёгкая хлопковая футболка с логотипом Anor Bank.',
+  },
+  {
+    id: 3,
+    title: 'Худи Anor Bank',
+    category: 'tshirt',
+    price: 165000,
+    color: 'Тёмно-серый',
+    imageColor: '#3d3d3d',
+    description: 'Тёплое худи с вышивкой логотипа Anor Bank.',
+  },
+  {
+    id: 4,
+    title: 'Блокнот Anor Bank, A5',
+    category: 'notebook',
+    price: 45000,
+    color: 'Чёрный',
+    imageColor: '#222222',
+    description: 'Блокнот в твёрдой обложке формата A5, 120 листов.',
+  },
+  {
+    id: 5,
+    title: 'Блокнот Anor Bank, A6',
+    category: 'notebook',
+    price: 30000,
+    color: 'Бордовый',
+    imageColor: '#7a1f2b',
+    description: 'Компактный карманный блокнот A6 с резинкой-фиксатором.',
+  },
+  {
+    id: 6,
+    title: 'Ежедневник Anor Bank',
+    category: 'notebook',
+    price: 65000,
+    color: 'Красный',
+    imageColor: '#c0392b',
+    description: 'Датированный ежедневник на год в фирменной обложке.',
+  },
+]
