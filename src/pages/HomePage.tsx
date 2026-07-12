@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Box, Button, Flex, Select, SimpleGrid, Stack, Text, Title } from '@mantine/core'
 import { Link } from 'react-router'
-import { RiShieldCheckLine, RiTruckLine, RiPaletteLine } from '@remixicon/react'
+import { RiShieldCheckLine, RiTruckLine, RiPaletteLine,RiStore2Fill  } from '@remixicon/react'
 import { Layout } from '../components/Layout.tsx'
 import { ProductCard } from '../components/ProductCard.tsx'
 import { products } from '../constants/products.ts'
@@ -22,6 +22,25 @@ const features = [
     icon: RiShieldCheckLine,
     title: 'Гарантия качества',
     text: 'Проверенные материалы и плотная печать логотипа',
+  },
+]
+
+const whyChooseUs = [
+  {
+    title: 'Официальный мерч Anor Bank',
+    text: 'Только оригинальная продукция с фирменным логотипом банка',
+  },
+  {
+    title: 'Стильный, сдержанный дизайн',
+    text: 'Минимализм и качество, которые уместны в любой обстановке',
+  },
+  {
+    title: 'Комфортные материалы',
+    text: 'Плотный хлопок и качественная бумага — приятно носить и использовать',
+  },
+  {
+    title: 'Выгодные цены для сотрудников',
+    text: 'Специальные условия для команды и партнёров банка',
   },
 ]
 
@@ -109,11 +128,49 @@ export function HomePage() {
           )
         })}
       </Flex>
+        <Flex p={'xl'} gap={'xl'} wrap={'wrap'} align={'center'} maw={1000} mx={'auto'}>
+  <Flex
+    w={{ base: '100%', sm: 400 }}
+    h={320}
+    bg={'#96033E'}
+    align={'center'}
+    justify={'center'}
+    style={{ borderRadius: 16 }}
+  >
+    <RiStore2Fill size={80} color={'white'} />
+  </Flex>
 
+  <Stack flex={1} miw={280} gap={'md'}>
+    <Title order={2}>Почему выбирают наш мерч</Title>
+
+    {whyChooseUs.map((item, index) => (
+      <Flex key={item.title} gap={'sm'} align={'flex-start'}>
+        <Flex
+          w={28}
+          h={28}
+          bg={'#96033E'}
+          c={'white'}
+          align={'center'}
+          justify={'center'}
+          style={{ borderRadius: '50%', flexShrink: 0 }}
+          fw={700}
+        >
+          {index + 1}
+        </Flex>
+        <Box>
+          <Text fw={700}>{item.title}</Text>
+          <Text size={'sm'} c={'dimmed'}>
+            {item.text}
+          </Text>
+        </Box>
+      </Flex>
+    ))}
+  </Stack>
+</Flex>
       
       <Box p={'xl'} maw={1000} mx={'auto'}>
   <Title order={2} mb={'lg'} ta={'center'}>
-    Почему выбирают наш мерч
+    Популярные товары
   </Title>
 
   <SimpleGrid cols={{ base: 1, sm: 2, md: 3 }} spacing={'lg'}>
