@@ -1,10 +1,10 @@
 import type { IMenuLinks } from '../types/menuLinks.ts'
 
 export const menuLinks: IMenuLinks[] = [
-  {
-    title: 'Home',
-    path: '/home',
-  },
+ {
+  title: 'Home',
+  path: '/',
+},
   {
     title: 'Products',
     path: '/products',

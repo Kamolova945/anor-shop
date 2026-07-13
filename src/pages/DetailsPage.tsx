@@ -17,7 +17,6 @@ import { Layout } from '../components/Layout.tsx'
 import { ProductCard } from '../components/ProductCard.tsx'
 import { products } from '../constants/products.ts'
 
-
 const features = [
   'Оригинальная упаковка Anor Bank',
   'Бирка с логотипом',
@@ -46,7 +45,6 @@ export function DetailsPage() {
     )
   }
 
-  
   const specs = [
     { icon: RiTShirtLine, label: 'Категория', value: product.category === 'tshirt' ? 'Одежда' : 'Блокноты' },
     { icon: RiDropLine, label: 'Материал', value: product.material },
@@ -56,7 +54,6 @@ export function DetailsPage() {
     { icon: RiHandHeartLine, label: 'Уход', value: 'Ручная стирка' },
   ]
 
-  
   const otherProducts = products.filter((p) => p.id !== product.id).slice(0, 4)
 
   return (
@@ -74,7 +71,6 @@ export function DetailsPage() {
         </Button>
 
         <Flex gap={'xl'} wrap={'wrap'} align={'flex-start'}>
-          
           <Box w={{ base: '100%', sm: 400 }}>
             <Title order={2}>{product.title}</Title>
             <Text size={'xl'} fw={700} c={'red'} mb={'md'}>
@@ -83,7 +79,6 @@ export function DetailsPage() {
 
             <Box h={320} bg={product.imageColor} style={{ borderRadius: 16 }} />
 
-            
             <Flex gap={'sm'} mt={'sm'}>
               <Box w={70} h={70} bg={product.imageColor} style={{ borderRadius: 8, opacity: 0.6 }} />
               <Box w={70} h={70} bg={product.imageColor} style={{ borderRadius: 8, opacity: 0.8 }} />
@@ -91,7 +86,6 @@ export function DetailsPage() {
             </Flex>
           </Box>
 
-          
           <Stack flex={1} miw={280} gap={'lg'}>
             <Box>
               <Title order={4} mb={'sm'}>
@@ -135,7 +129,6 @@ export function DetailsPage() {
               Добавить в корзину
             </Button>
 
-            
             <Box>
               <Title order={4} mb={'sm'}>
                 Что входит
@@ -153,7 +146,6 @@ export function DetailsPage() {
           </Stack>
         </Flex>
 
-        
         <Box>
           <Flex justify={'space-between'} align={'center'} mb={'md'}>
             <Title order={3}>Похожие товары</Title>
