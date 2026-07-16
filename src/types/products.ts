@@ -1,14 +1,28 @@
-export type ProductCategory = 'tshirt' | 'notebook'
+export interface ICategory {
+  id: number
+  name: string
+  slug: string
+  image: string
+}
 
 export interface IProduct {
   id: number
   title: string
-  category: ProductCategory
+  slug: string
   price: number
-  color: string
-  imageColor: string
   description: string
-  material: string
-  sizes: string
-  weight: string
+  category: ICategory
+  images: string[]
+}
+
+export interface ICommonParams {
+  page?: string
+  size?: string
+  search?: string
+}
+
+export type TProductParams = ICommonParams & {
+  categoryId?: string
+  price_min?: string
+  price_max?: string
 }
