@@ -1,10 +1,21 @@
 import { useState } from 'react'
 import { Box, Button, Flex, Select, SimpleGrid, Stack, Text, Title } from '@mantine/core'
 import { Link } from 'react-router'
-import {RiShieldCheckLine, RiTruckLine, RiPaletteLine,RiStore2Fill,RiShoppingBagFill,RiTeamFill,RiAwardFill,RiMapPinFill,RiAppleFill,RiGooglePlayFill} from '@remixicon/react'
+import {
+  RiShieldCheckLine,
+  RiTruckLine,
+  RiPaletteLine,
+  RiStore2Fill,
+  RiShoppingBagFill,
+  RiTeamFill,
+  RiAwardFill,
+  RiMapPinFill,
+  RiAppleFill,
+  RiGooglePlayFill,
+} from '@remixicon/react'
 import { Layout } from '../components/Layout.tsx'
 import { ProductCard } from '../components/ProductCard.tsx'
-import { products } from '../constants/products.ts'
+import { useProducts } from '../hooks/useProducts.ts'
 import phoneImage from '../assets/Component 1.png'
 
 const features = [
@@ -57,9 +68,11 @@ export function HomePage() {
   const [color, setColor] = useState<string | null>(null)
   const [quantity, setQuantity] = useState<string | null>(null)
 
+  const { data } = useProducts({ page: '1', size: '6' })
+  const popularProducts = data?.data ?? []
+
   return (
     <Layout>
-      
       <Box
         bg={'#96033E'}
         m={'xl'}
@@ -92,12 +105,7 @@ export function HomePage() {
                 value={category}
                 onChange={setCategory}
               />
-              <Select
-                placeholder={'Размер'}
-                data={['S', 'M', 'L', 'XL']}
-                value={size}
-                onChange={setSize}
-              />
+              <Select placeholder={'Размер'} data={['S', 'M', 'L', 'XL']} value={size} onChange={setSize} />
               <Select
                 placeholder={'Цвет'}
                 data={['Чёрный', 'Белый', 'Красный']}
@@ -119,7 +127,6 @@ export function HomePage() {
         </Flex>
       </Box>
 
-      
       <Flex justify={'center'} gap={'xl'} p={'xl'} wrap={'wrap'}>
         {features.map((feature) => {
           const Icon = feature.icon
@@ -136,7 +143,6 @@ export function HomePage() {
         })}
       </Flex>
 
-    
       <Flex p={'xl'} gap={'xl'} wrap={'wrap'} align={'center'} maw={1000} mx={'auto'}>
         <Flex
           w={{ base: '100%', sm: 400 }}
@@ -177,27 +183,25 @@ export function HomePage() {
         </Stack>
       </Flex>
 
-    
       <Box p={'xl'} maw={1000} mx={'auto'}>
         <Title order={2} mb={'lg'} ta={'center'}>
           Популярные товары
         </Title>
 
         <SimpleGrid cols={{ base: 1, sm: 2, md: 3 }} spacing={'lg'}>
-          {products.map((product) => (
+          {popularProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </SimpleGrid>
       </Box>
 
-     
       <Box bg={'#96033E'} m={'xl'} p={'xl'} style={{ borderRadius: 24, minHeight: 320 }}>
-         <Title order={2} c={'white'} ta={'center'} mb={'xs'}>
-  Anor Shop в цифрах
-</Title>
-<Text c={'gray.3'} ta={'center'} maw={500} mx={'auto'} mb={'xl'}>
-  Мы гордимся тем, что делаем для наших клиентов — вот немного статистики о нашем магазине мерча
-</Text>
+        <Title order={2} c={'white'} ta={'center'} mb={'xs'}>
+          Anor Shop в цифрах
+        </Title>
+        <Text c={'gray.3'} ta={'center'} maw={500} mx={'auto'} mb={'xl'}>
+          Мы гордимся тем, что делаем для наших клиентов — вот немного статистики о нашем магазине мерча
+        </Text>
 
         <Flex justify={'center'} gap={'lg'} wrap={'wrap'}>
           {stats.map((stat) => {
@@ -237,15 +241,7 @@ export function HomePage() {
         </Flex>
       </Box>
 
-      <Flex
-        justify={'space-between'}
-        align={'center'}
-        gap={'xl'}
-        p={'xl'}
-        wrap={'wrap'}
-        maw={1000}
-        mx={'auto'}
-      >
+      <Flex justify={'space-between'} align={'center'} gap={'xl'} p={'xl'} wrap={'wrap'} maw={1000} mx={'auto'}>
         <Stack maw={450} gap={'md'}>
           <Title order={2}>Скачайте приложение Anor Bank</Title>
           <Text c={'dimmed'}>
@@ -254,27 +250,11 @@ export function HomePage() {
           </Text>
 
           <Flex gap={'sm'}>
-            <Flex
-              align={'center'}
-              gap={'xs'}
-              bg={'black'}
-              c={'white'}
-              px={'md'}
-              py={'xs'}
-              style={{ borderRadius: 8 }}
-            >
+            <Flex align={'center'} gap={'xs'} bg={'black'} c={'white'} px={'md'} py={'xs'} style={{ borderRadius: 8 }}>
               <RiAppleFill size={20} />
               <Text size={'sm'}>App Store</Text>
             </Flex>
-            <Flex
-              align={'center'}
-              gap={'xs'}
-              bg={'black'}
-              c={'white'}
-              px={'md'}
-              py={'xs'}
-              style={{ borderRadius: 8 }}
-            >
+            <Flex align={'center'} gap={'xs'} bg={'black'} c={'white'} px={'md'} py={'xs'} style={{ borderRadius: 8 }}>
               <RiGooglePlayFill size={20} />
               <Text size={'sm'}>Google Play</Text>
             </Flex>
@@ -283,48 +263,42 @@ export function HomePage() {
 
         <img src={phoneImage} alt={'Приложение Anor Bank'} width={220} style={{ borderRadius: 24 }} />
       </Flex>
-      <Box
-  bg={'#96033E'}
-  m={'xl'}
-  py={100}
-  pl={150}
-  pr={'xl'}
-  style={{ borderRadius: 24, position: 'relative', overflow: 'hidden' }}
->
-  <Flex justify={'space-between'} align={'center'} gap={'xl'} wrap={'wrap'}>
-    <Stack maw={500} gap={'sm'}>
-      <Title order={2} c={'white'}>
-        Узнавайте первыми об акциях и новинках
-      </Title>
-      <Text c={'gray.3'}>
-        Подпишитесь на рассылку Anor Shop — скидки, новые коллекции
-        и закрытые предложения для подписчиков.
-      </Text>
 
-      <Flex gap={'sm'} maw={450} align={'stretch'}>
-  <input
-    type={'email'}
-    placeholder={'Ваш email'}
-    style={{
-      flex: 1,
-      padding: '14px 16px',
-      borderRadius: 8,
-      border: 'none',
-      outline: 'none',
-      fontSize: 14,
-    }}
-  />
-  <Button color={'orange'} size={'md'} style={{ borderRadius: 8, height: 'auto' }}>
-    Подписаться
-  </Button>
-</Flex>
-    </Stack>
+      <Box bg={'#96033E'} py={100} pl={100} pr={'xl'} m={'xl'} style={{ borderRadius: 24, position: 'relative', overflow: 'hidden' }}>
+        <Flex justify={'space-between'} align={'center'} gap={'xl'} wrap={'wrap'}>
+          <Stack maw={500} gap={'sm'}>
+            <Title order={2} c={'white'}>
+              Узнавайте первыми об акциях и новинках
+            </Title>
+            <Text c={'gray.3'}>
+              Подпишитесь на рассылку Anor Shop — скидки, новые коллекции
+              и закрытые предложения для подписчиков.
+            </Text>
 
-    <Box mr={200}>
-  <RiShoppingBagFill size={140} color={'rgba(255,255,255,0.15)'} />
-</Box>
-  </Flex>
-</Box>
+            <Flex gap={'sm'} maw={450} align={'stretch'}>
+              <input
+                type={'email'}
+                placeholder={'Ваш email'}
+                style={{
+                  flex: 1,
+                  padding: '14px 16px',
+                  borderRadius: 8,
+                  border: 'none',
+                  outline: 'none',
+                  fontSize: 14,
+                }}
+              />
+              <Button color={'orange'} size={'md'} style={{ borderRadius: 8, height: 'auto' }}>
+                Подписаться
+              </Button>
+            </Flex>
+          </Stack>
+
+          <Box mr={40}>
+            <RiShoppingBagFill size={140} color={'rgba(255,255,255,0.15)'} />
+          </Box>
+        </Flex>
+      </Box>
     </Layout>
   )
 }
