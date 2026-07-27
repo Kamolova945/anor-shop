@@ -15,7 +15,7 @@ export const useLogin = () => {
     onSuccess: (tokens) => {
       setTokens(tokens)
       queryClient.invalidateQueries({ queryKey: [PROFILE_KEY] })
-      navigate('/products', { replace: true })
+    navigate('/', { replace: true })
     },
     onError: () =>
       notifications.show({ color: 'red', message: 'Неверный email или пароль' }),

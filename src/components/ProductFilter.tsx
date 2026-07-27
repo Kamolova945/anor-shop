@@ -71,7 +71,16 @@ export const ProductFilter = () => {
           radius={'xl'}
           variant={activeCategory === String(category.id) ? 'filled' : 'default'}
           color={'red'}
+          title={category.name}
+          maw={160}
           onClick={() => onCategoryClick(String(category.id))}
+          styles={{
+            label: {
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              whiteSpace: 'nowrap',
+            },
+          }}
         >
           {category.name}
         </Button>

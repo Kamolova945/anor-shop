@@ -11,32 +11,32 @@ import { ProtectedRoute } from '../components/auth/ProtectedRoute.tsx'
 
 export const router = createBrowserRouter([
   {
-    path: '/',
-    element: <HomePage />,
-  },
-  {
-    path: '/products',
-    element: <ProductsPage />,
-  },
-  {
-    path: '/details/:id',
-    element: <DetailsPage />,
-  },
-  {
-    path: '/about',
-    element: <AboutUsPage />,
-  },
-  {
-    path: '/contacts',
-    element: <ContactUsPage />,
-  },
-  {
     path: '/login',
     element: <LoginPage />,
   },
   {
     element: <ProtectedRoute />,
     children: [
+      {
+        path: '/',
+        element: <HomePage />,
+      },
+      {
+        path: '/products',
+        element: <ProductsPage />,
+      },
+      {
+        path: '/details/:id',
+        element: <DetailsPage />,
+      },
+      {
+        path: '/about',
+        element: <AboutUsPage />,
+      },
+      {
+        path: '/contacts',
+        element: <ContactUsPage />,
+      },
       {
         path: '/profile',
         element: <ProfilePage />,

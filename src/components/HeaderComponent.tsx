@@ -1,10 +1,14 @@
-import { Box, Flex, Text } from '@mantine/core'
+import { ActionIcon, Avatar, Box, Flex, Text } from '@mantine/core'
 import { Link, useLocation } from 'react-router'
-import { RiPhoneFill, RiStore2Fill } from '@remixicon/react'
+import { RiPhoneFill, RiStore2Fill, RiLogoutBoxRLine } from '@remixicon/react'
 import { menuLinks } from '../constants/menuLinks.ts'
+import { useProfile } from '../hooks/useProfile.ts'
+import { useLogout } from '../hooks/useLogout.ts'
 
 export const HeaderComponent = () => {
   const location = useLocation()
+  const { data: user } = useProfile()
+  const logout = useLogout()
 
   return (
     <Box bg={'white'} py={'md'} px={'xl'}>
@@ -18,7 +22,6 @@ export const HeaderComponent = () => {
           </Flex>
         </Link>
 
-       
         <Flex gap={'lg'}>
           {menuLinks.map((item) => {
             const isActive = location.pathname === item.path
@@ -39,7 +42,6 @@ export const HeaderComponent = () => {
           })}
         </Flex>
 
-        
         <Flex align={'center'} gap={'sm'}>
           <Flex
             align={'center'}
@@ -58,6 +60,16 @@ export const HeaderComponent = () => {
             </Text>
             <Text fw={700}>+998 78 150 00 00</Text>
           </Box>
+
+          <Link to={'/profile'} style={{ textDecoration: 'none' }}>
+            <Avatar src={user?.avatar} radius={'50%'} color={'red'}>
+              {user?.name?.[0]}
+            </Avatar>
+          </Link>
+
+          <ActionIcon variant={'light'} color={'red'} size={'lg'} onClick={logout}>
+            <RiLogoutBoxRLine size={18} />
+          </ActionIcon>
         </Flex>
       </Flex>
     </Box>
