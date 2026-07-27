@@ -9,6 +9,9 @@ import { LoginPage } from '../pages/LoginPage.tsx'
 import { RegisterPage } from '../pages/RegisterPage.tsx'
 import { ProfilePage } from '../pages/ProfilePage.tsx'
 import { AdminPage } from '../pages/AdminPage.tsx'
+import { DashboardHomePage } from '../pages/dashboard/DashboardHomePage.tsx'
+import { DashboardProductsPage } from '../pages/dashboard/DashboardProductsPage.tsx'
+import { DashboardCategoriesPage } from '../pages/dashboard/DashboardCategoriesPage.tsx'
 import { ProtectedRoute } from '../components/auth/ProtectedRoute.tsx'
 import { AdminRoute } from '../components/auth/AdminRoute.tsx'
 
@@ -47,6 +50,18 @@ export const router = createBrowserRouter([
       {
         path: '/profile',
         element: <ProfilePage />,
+      },
+      {
+        path: '/dashboard',
+        element: <DashboardHomePage />,
+      },
+      {
+        path: '/dashboard/products',
+        element: <DashboardProductsPage />,
+      },
+      {
+        path: '/dashboard/categories',
+        element: <DashboardCategoriesPage />,
       },
       {
         element: <AdminRoute />,

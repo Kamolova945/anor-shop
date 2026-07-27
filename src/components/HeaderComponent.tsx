@@ -67,7 +67,7 @@ export const HeaderComponent = () => {
             </Avatar>
           </Link>
 
-          <ActionIcon variant={'light'} color={'red'} size={'lg'} onClick={logout}>
+          <ActionIcon variant={'light'} color={'red'} size={'lg'} radius={'xl'} onClick={logout}>
             <RiLogoutBoxRLine size={18} />
           </ActionIcon>
         </Flex>
