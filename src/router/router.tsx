@@ -8,7 +8,9 @@ import { ContactUsPage } from '../pages/ContactUsPage.tsx'
 import { LoginPage } from '../pages/LoginPage.tsx'
 import { RegisterPage } from '../pages/RegisterPage.tsx'
 import { ProfilePage } from '../pages/ProfilePage.tsx'
+import { AdminPage } from '../pages/AdminPage.tsx'
 import { ProtectedRoute } from '../components/auth/ProtectedRoute.tsx'
+import { AdminRoute } from '../components/auth/AdminRoute.tsx'
 
 export const router = createBrowserRouter([
   {
@@ -45,6 +47,15 @@ export const router = createBrowserRouter([
       {
         path: '/profile',
         element: <ProfilePage />,
+      },
+      {
+        element: <AdminRoute />,
+        children: [
+          {
+            path: '/admin',
+            element: <AdminPage />,
+          },
+        ],
       },
     ],
   },
