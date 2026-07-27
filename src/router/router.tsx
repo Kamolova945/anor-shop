@@ -6,6 +6,7 @@ import { DetailsPage } from '../pages/DetailsPage.tsx'
 import { AboutUsPage } from '../pages/AboutUsPage.tsx'
 import { ContactUsPage } from '../pages/ContactUsPage.tsx'
 import { LoginPage } from '../pages/LoginPage.tsx'
+import { RegisterPage } from '../pages/RegisterPage.tsx'
 import { ProfilePage } from '../pages/ProfilePage.tsx'
 import { ProtectedRoute } from '../components/auth/ProtectedRoute.tsx'
 
@@ -13,6 +14,10 @@ export const router = createBrowserRouter([
   {
     path: '/login',
     element: <LoginPage />,
+  },
+  {
+    path: '/register',
+    element: <RegisterPage />,
   },
   {
     element: <ProtectedRoute />,

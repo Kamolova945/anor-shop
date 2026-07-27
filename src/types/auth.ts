@@ -15,3 +15,14 @@ export interface IUser {
   role: 'customer' | 'admin'
   avatar: string
 }
+
+export interface IRegisterPayload {
+  name: string
+  email: string
+  password: string
+  avatar: string
+}
+
+export interface IEmailAvailability {
+  isAvailable: boolean
+}

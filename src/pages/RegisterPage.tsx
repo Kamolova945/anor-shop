@@ -1,8 +1,8 @@
 import { Anchor, Center, Paper, Stack, Text, Title } from '@mantine/core'
 import { Link } from 'react-router'
-import { LoginForm } from '../components/auth/LoginForm.tsx'
+import { RegisterForm } from '../components/auth/RegisterForm.tsx'
 
-export function LoginPage() {
+export function RegisterPage() {
   return (
     <Center h={'100vh'} bg={'gray.0'}>
       <Paper p={'xl'} radius={'md'} withBorder w={360}>
@@ -11,16 +11,16 @@ export function LoginPage() {
             Anor Shop
           </Title>
           <Text size={'sm'} c={'dimmed'}>
-            Войдите, чтобы продолжить
+            Создайте аккаунт
           </Text>
         </Stack>
 
-        <LoginForm />
+        <RegisterForm />
 
         <Text size={'sm'} c={'dimmed'} mt={'md'} ta={'center'}>
-          Нет аккаунта?{' '}
-          <Anchor component={Link} to={'/register'} c={'#96033E'}>
-            Зарегистрироваться
+          Уже есть аккаунт?{' '}
+          <Anchor component={Link} to={'/login'} c={'#96033E'}>
+            Войти
           </Anchor>
         </Text>
       </Paper>
